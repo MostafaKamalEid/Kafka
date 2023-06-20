@@ -14,9 +14,9 @@ namespace Kafka
         public ConsumerWrapper(ConsumerConfig config)
         {
             config.BrokerAddressFamily = BrokerAddressFamily.V4;
-            config.AutoOffsetReset = AutoOffsetReset.Latest;
+            config.AutoOffsetReset = AutoOffsetReset.Earliest;
             config.EnableAutoCommit = false;
-            config.EnableAutoOffsetStore = false;
+            config.EnableAutoOffsetStore = true;
             config.SessionTimeoutMs = 6000;
             config.MaxPollIntervalMs = 6000;
             config.ClientId = "test";

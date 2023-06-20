@@ -23,7 +23,7 @@ namespace Kafka
         {
 
             _timer = new Timer(async (state) => await DoWork(state), null, TimeSpan.Zero,
-                TimeSpan.FromMinutes(2));
+                TimeSpan.FromSeconds(3));
             return Task.CompletedTask;
         }
 

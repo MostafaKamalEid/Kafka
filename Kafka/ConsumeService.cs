@@ -61,10 +61,9 @@ namespace Kafka
                 _consumer.Pause(_consumer.Assignment);
 
                 // Delay to simulate processing time for the message 
-                await Task.Delay(10000);
+                await Task.Delay(1000);
                 // Commit the message to the broker
-                _consumer.Commit(new List<TopicPartitionOffset> { consumeResult.TopicPartitionOffset });
-                _consumer.StoreOffset(consumeResult);
+                _consumer.Commit(consumeResult);
                 // Resume the partition so that the consumer can consume the next message
                 _consumer.Resume(_consumer.Assignment);
 
